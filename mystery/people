@@ -1,8 +1,7 @@
 ***************
-To go to the street someone lives on, use the file
-for that street name in the 'streets' subdirectory.
-To knock on their door and investigate, read the line number
-they live on from the file.  If a line looks like gibberish, you're at the wrong house.
+要前往某人居住的街道，请使用 'streets' 子目录中该街道名称的文件。
+要敲门调查，请从文件中读取他们居住的行号。
+如果一行看起来像是乱码，那你就敲错门了。
 ***************
 
 NAME	GENDER	AGE	ADDRESS

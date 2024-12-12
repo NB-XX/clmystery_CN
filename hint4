@@ -1,5 +1,5 @@
-To find all the Annabels' addresses, use the 'people' file:
+要找到所有 Annabel 的地址，可以使用 `people` 文件：
 
 	grep "Annabel" people
 
-Notice that not all of the results are worth investigating.  Remember what we know about Annabel.
+请注意，并不是所有结果都值得进一步调查。记住我们对 Annabel 的已知信息。

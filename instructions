@@ -22,20 +22,20 @@ OOOOOOO'  `@@a               @@a@@   @@""           a@@   a     |@@@ OOOO3
 `OOOO'       `@    aa@@       aaa"""          @a        a@     a@@@',OOOO'
 
 
-There's been a murder in Terminal City, and TCPD needs your help.
+在终端城发生了一起谋杀案，终端城警察局需要你的帮助。
 
-To figure out whodunit, go to the 'mystery' subdirectory and start working from there.
+要想查明凶手，前往 'mystery' 子目录并从那里开始工作。
 
-You'll want to start by collecting all the clues at the crime scene (the 'crimescene' file).
+你首先需要在犯罪现场（'crimescene' 文件）收集所有线索。
 
-The officers on the scene are pretty meticulous, so they've written down EVERYTHING in their officer reports.
+现场的警官非常细心，因此他们在警官报告中记录了一切。
 
-Fortunately the sergeant went through and marked the real clues with the word "CLUE" in all caps.
+幸运的是，警官标记了所有真正的线索，都用全大写的 "CLUE" 标注。
 
-If you get stuck, open one of the hint files (from the CL, type 'cat hint1', 'cat hint2', etc.).
+如果你遇到困难，可以打开一个提示文件（在命令行中，输入 'cat hint1', 'cat hint2' 等）。
 
-To check your answer or find out the solution, open the file 'solution' (from the CL, type 'cat solution').
+要检查你的答案或找出解决方案，请打开 'solution' 文件（在命令行中，输入 'cat solution'）。
 
-To get started on how to use the command line, open cheatsheet.md or cheatsheet.pdf (from the command line, you can type 'nano cheatsheet.md').
+要开始学习如何使用命令行，请打开 cheatsheet.md 或 cheatsheet.pdf （在命令行中，你可以输入 'nano cheatsheet.md'）。
 
-Don't use a text editor to view any files except these instructions, the cheatsheet, and hints.
+除了这些指令、小抄和提示之外，不要用文本编辑器查看任何文件。

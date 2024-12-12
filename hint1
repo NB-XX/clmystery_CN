@@ -1,5 +1,5 @@
-Try poking around what's in a file by using the 'head' command:
+试着使用 `head` 命令查看文件中的内容：
 
   head -n 20 people
 
-This will show you the first 20 lines of the 'people' file.
+这将显示名为 people 文件的前 20 行内容。

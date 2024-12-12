@@ -1,21 +1,21 @@
-Checking Your Answer on Mac/Linux:
+检查您的答案（Mac/Linux）：
 
-  Copy and paste the following command, replace John Doe with the suspect's name you want to check, and execute it from inside the main clmystery directory:
+ 复制并粘贴以下命令，将 John Doe 替换为您要检查的嫌疑人的名字，并在 main clmystery 目录中执行它：
 
-  echo "John Doe" | $(command -v md5 || command -v md5sum) | grep -qif /dev/stdin encoded && echo CORRECT\! GREAT WORK, GUMSHOE. || echo SORRY, TRY AGAIN.
+ echo "John Doe" | $(command -v md5 || command -v md5sum) | grep -qif /dev/stdin encoded && echo 正确！干得好，侦探。 || echo 对不起，再试一次。
 
-Checking Your Answer on Windows:
+检查您的答案（Windows）：
 
-  Copy and paste the following command, replace John Doe with the suspect's name you want to check, and execute it from inside the main clmystery directory:
+复制并粘贴以下命令，将 John Doe 替换为您要检查的嫌疑人的名字，并在 main clmystery 目录中执行它：
 
-  echo "John Doe" | $(command -v md5 || command -v md5sum)
+ echo "John Doe" | $(command -v md5 || command -v md5sum)
 
-  This will give you a long code of numbers and letters. Copy and paste the following command, replace My Code with the code you got, and execute it:
+ 这将给您一个长的数字和字母组成的代码。复制并粘贴以下命令，将 My Code 替换为您得到的代码，并执行它：
 
-  grep -qi "My Code" encoded && echo CORRECT\! GREAT WORK, GUMSHOE. || echo SORRY, TRY AGAIN.
+ grep -qi "My Code" encoded && echo 正确！干得好，侦探。 || echo 对不起，再试一次。
 
-Seeing The Answer:
+查看答案：
 
-  To give up and view the correct answer, copy and paste the following command and execute it from inside the main clmystery directory:
+ 若要放弃并查看正确答案，请复制并粘贴以下命令并在 main clmystery 目录中执行它：
 
-  echo " " && sed -n '/Z/p' encoded | tail -n 6 | cut -c 8,22,23,41 && echo " "
+ echo " " && sed -n '/Z/p' encoded | tail -n 6 | cut -c 8,22,23,41 && echo " "

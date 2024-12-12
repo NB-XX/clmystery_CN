@@ -1,4 +1,4 @@
-To find a matching license plate, or a matching car, you can use grep on the 'vehicles' file:
+要找到匹配的车牌或车辆，可以使用 `grep` 命令在 `vehicles` 文件中搜索：
 
 	grep "Honda" vehicles
 
@@ -6,4 +6,4 @@ To find a matching license plate, or a matching car, you can use grep on the 've
 
 	grep "L337" vehicles
 
-This doesn't give us anything useful - why not? Try using 'head' on the file to investigate its structure.
+这并没有给我们任何有用的信息——为什么呢？尝试对该文件使用 'head' 来检查其结构。

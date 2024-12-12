@@ -1,6 +1,6 @@
-In order to actually get information about vehicles that might match our description,
-we need to get multiple lines AROUND each match.  We can use the -A, -B, or -C option with grep:
+为了真正获取符合我们描述的车辆信息，我们需要在每个匹配的行周围获取多行内容。
+我们可以使用 grep 的 -A、-B 或 -C 选项:
 
 	grep -A 5 "L337" mystery/vehicles
 
-This will match the license plates that contain "L337" and, for each match, show us the five lines AFTER it.
+这将匹配包含 "L337" 的车牌号，并在每次匹配后显示接下来的五行。

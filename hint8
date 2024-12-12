@@ -1,11 +1,11 @@
-To see who was a member of several different groups, you can combine their membership lists into one and search against that.
+要查看谁是几个不同组织的成员，您可以将他们的成员名单合并成一个，然后对其进行搜索。
 
 	cat Fitness_Galaxy AAA United_MileagePlus | grep "John Smith"
 
-If you only want to see the number of matches, you can use grep's -c option (the c must be lowercase):
+如果您只想查看匹配的数量，可以使用 grep 的 -c 选项（c 必须是小写）：
 
 	cat Fitness_Galaxy AAA United_MileagePlus | grep -c "John Smith"
 
-Or you can pipe the result to 'wc -l':
+或者您可以将结果传输到 'wc -l'：
 
 	cat Fitness_Galaxy AAA United_MileagePlus | grep "John Smith" | wc -l

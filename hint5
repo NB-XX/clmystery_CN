@@ -1,6 +1,5 @@
-"Interview" the two possible witnesses by reading the correct line from the streets they live on:
+“采访”两位可能的目击者，方法是读取她们所居住街道的正确行：
 
 	head -n 173 streets/Mattapan_Street | tail -n 1
 
-This will give you just line 173 of Mattapan street, because it will take first 173 lines, and then take
-the last line from those.
+这将只给出 Mattapan 街第 173 行的内容，因为它会先取前 173 行，然后从中取最后一行：

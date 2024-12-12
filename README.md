@@ -1,4 +1,4 @@
-The Command Line Murders
+命令行谋杀案
 ========================
 
 	.OOOOOOOOOOOOOOO @@                                   @@ OOOOOOOOOOOOOOOO.
@@ -25,27 +25,27 @@ The Command Line Murders
 	`OOOO'       `@    aa@@       aaa"""          @a        a@     a@@@',OOOO'
 
 
-There's been a murder in Terminal City, and TCPD needs your help.
+在终端城市发生了一起谋杀案，TCPD 需要你的帮助。
 
-To figure out whodunit, you need access to a command line.
+要找出凶手，你需要访问命令行。
 
-Once you're ready, clone this repo, or [download it as a zip file](https://github.com/veltman/clmystery/archive/master.zip).
+准备好后，克隆此仓库，或[以压缩文件形式下载](https://github.com/veltman/clmystery/archive/master.zip)。
 
-Open a Terminal, go to the location of the files, and start by reading the file 'instructions'.
+打开一个终端，前往文件所在位置，开始阅读名为 'instructions' 的文件。
 
-One way you can do this is with the command:
+你可以用以下命令来做这件事：
 
 	cat instructions
 
-(`cat` is a command that will print the contents of the file called `instructions` for you to read.)
+（`cat` 是一个命令，将为你打印名为 `instructions` 的文件内容以供阅读。）
 
-To get started on how to use the command line, open cheatsheet.md or cheatsheet.pdf (from the command line, you can type 'nano cheatsheet.md').
+要开始学习如何使用命令行，打开 cheatsheet.md 或 cheatsheet.pdf（在命令行中，你可以输入 'nano cheatsheet.md'）。
 
-Don't use a text editor to view any files except these instructions, the cheatsheet, and hints.
+除了这些指令、小抄和提示之外，不要用文本编辑器查看任何文件。
 
-### Credits
+### 鸣谢
 
-By Noah Veltman  
-Projects: [noahveltman.com](http://noahveltman.com)  
-GitHub: [veltman](https://github.com/veltman)  
-Twitter: [@veltman](https://twitter.com/veltman)  
+作者：Noah Veltman  
+项目：[noahveltman.com](http://noahveltman.com)  
+GitHub：[veltman](https://github.com/veltman)  
+Twitter：[@veltman](https://twitter.com/veltman)  

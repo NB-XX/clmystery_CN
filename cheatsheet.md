@@ -1,149 +1,149 @@
-Playing with text on the command line
+在命令行上处理文本
 =====================================
 
-The command line (also known as the command line interface, or CLI, or sometimes the terminal), is a plain text-based interface for executing commands on a computer.  If you've ever seen a movie about hackers from the 1980s, like *WarGames*, where they stare at a prompt on a black screen and type in commands one at a time, it's basically that.
+命令行（也称为命令行界面，简称CLI，或有时候称为终端），是一个基于纯文本的界面，用于在计算机上执行命令。如果你曾经看过1980年代关于黑客的电影，如 *WarGames*，他们盯着黑屏上的提示符逐个输入命令，基本上就是这样。
 
-You have a prompt, and you can type in a command and hit 'Enter' to execute it.  An example command would be:
+你有一个提示符，你可以输入一个命令并按“Enter”键执行它。一个例子命令是：
 
 	touch newfile.txt
 
-This command will create a file called `newfile.txt`.
+这个命令将创建一个名为`newfile.txt`的文件。
 
-How to access the command line
+如何访问命令行
 ------------------------------
 
-**Mac OS X:** Go to /Applications/Utilities and click on "Terminal" or search for "Terminal" in Spotlight.
+**Mac OS X：** 前往 /Applications/Utilities 并点击“Terminal”或在 Spotlight 中搜索“Terminal”。
 
-**Desktop Linux:** You can search for the "Terminal" application from the Dash.  Let's be honest, though, if you're running Linux, you probably don't need this tutorial.
+**Desktop Linux：** 你可以从 Dash 中搜索“Terminal”应用程序。不过老实说，如果你在使用 Linux，你可能不需要这个教程。
 
-**Windows:** Windows is a bit of a special case.  If you go to the Start Menu and click "Run", and then type "cmd" and hit enter, it will open the Windows version of the command line.  Unfortunately, the Windows version of the command line kind of has its own system, so for the purposes of following these examples, you'll want to install Cygwin, which will allow you to mimic a Linux-style command line:
+**Windows：** Windows 有些特殊。如果你前往开始菜单点击“运行”，然后输入“cmd”并按回车，它将打开 Windows 版的命令行。不幸的是，Windows 版的命令行有其自己的系统，所以为了跟随这些示例，你会想要安装 Cygwin，这将允许你模拟 Linux 风格的命令行：
 
 http://www.cygwin.com/
 
-A little more detail
+更多细节
 --------------------
 
-Commands generally take the format:
+命令通常采取的格式是：
 
-	[name of the command] [option] [option] [option] ...
+	[命令名称] [选项] [选项] [选项] ...
 
-The prompt will also show what directory you're currently sitting in.  Whenever you execute a command, you do it from a particular directory.  This matters because when you execute a command that involves a filename or a directory name, you can specify it one of two ways:
+提示符还会显示你当前所在的目录。每当你执行命令时，你都是从特定的目录中执行它。这很重要，因为当你执行涉及文件名或目录名的命令时，你可以用两种方式之一指定它们：
 
-#### Relative Paths
+#### 相对路径
 
-Specifying a file or directory as a relative path means you are specifying where it sits relative to the directory you're in.  For example, let's say you're in the `videos` subdirectory of the `files` directory.  You'll see this prompt:
-
-	/files/videos$
-
-If you execute a command like `touch newfile.txt`, it will create `newfile.txt` inside the current directory.  Relative paths don't start with a slash.
-
-#### Absolute Paths
-
-Specifying a file or directory as an absolute path means you are specifying where it sits on the computer in absolute terms, starting from the top level.  For example, let's say you're in the `videos` subdirectory of the `files` directory again.
+指定一个文件或目录为相对路径意味着你正在指定它相对于你所在目录的位置。例如，假设你在 `files` 目录的 `videos` 子目录中。你会看到这个提示符：
 
 	/files/videos$
 
-If you execute a command like `touch /files/music/newfile.txt`, it will create `newfile.txt` inside a different folder, the `music` subfolder of the `files` folder.  *Absolute paths start with a slash.*
+如果你执行像 `touch newfile.txt` 这样的命令，它将在当前目录内创建`newfile.txt`。相对路径不以斜杠开头。
 
-If you use an absolute path, the command will do the same thing no matter what directory you execute it from.
+#### 绝对路径
 
-So these two commands will have the same result from the `/files/videos` directory:
+指定一个文件或目录为绝对路径意味着你正在指定它在计算机上的绝对位置，从顶层开始。例如，假设你再次位于 `files` 目录的 `videos` 子目录中。
+
+	/files/videos$
+
+如果你执行像 `touch /files/music/newfile.txt` 这样的命令，它将在不同的文件夹中创建`newfile.txt`，即 `files` 文件夹的 `music` 子文件夹。*绝对路径以斜杠开头。*
+
+如果你使用绝对路径，无论你从哪个目录执行命令，命令都会做同样的事情。
+
+所以这两个命令在 `/files/videos` 目录下将有相同的结果：
 
 	/files/videos$ rm video.mp4
-	(This will delete the file `video.mp4` from the current directory)
+	（这将从当前目录删除文件`video.mp4`）
 
 	/files/videos$ rm /files/videos/video.mp4
-	(This will delete `video.mp4` from the /files/videos/ directory, which happens to be the current directory)
+	（这将从/files/videos/目录删除`video.mp4`，恰好是当前目录）
 
-The same two commands will not have the same result if you are in a different directory:
+如果你在不同的目录中，相同的两个命令将不会有相同的结果：
 
 	/files/text$ rm video.mp4
-	(This will try to delete the file video.mp4 from the 'text' subdirectory instead, because that's the current directory)
+	（这将尝试从'text'子目录中删除文件video.mp4，因为那是当前目录）
 
 	/files/text$ rm /files/videos/video.mp4
-	(This will delete the file from the /files/videos/ directory, even though it isn't the current directory)
+	（这将从/files/videos/目录删除文件，即使它不是当前目录）
 
-Remember:
+记住：
 
-**Starting a path with a slash** means you want to give the entire path and ignore what directory you're currently in.
-**Not starting a path with a slash** means you want to give the path starting from the directory you're in.
+**以斜杠开头的路径** 表示你想要给出完整的路径并忽略你当前所在的目录。
+**不以斜杠开头的路径** 表示你想要从你所在的目录开始给出路径。
 
-If you're ever unsure of what directory you're in, you can use the `pwd` (Print Working Directory) command to get the absolute path of the current directory.
+如果你不确定自己处于什么目录，你可以使用 `pwd`（打印工作目录）命令来获取当前目录的绝对路径。
 
 	~$ pwd
 	/Users/Noah
 
-File Patterns
+文件模式
 -------------
 
-In most cases when you have to specify a file name or directory name, you can also specify a general **pattern** that might match multiple files.  There are lots of ins and outs with this, but the most basic version is using the asterisk (*), which matches anything.  It's also known as a wildcard.
+在大多数情况下，当你需要指定文件名或目录名时，你也可以指定一个通用的**模式**，它可能匹配多个文件。这方面有许多细节，但最基本的版本是使用星号(*)，它匹配任何内容。它也被称为通配符。
 
-	Delete any file in the current directory
+	删除当前目录中的任何文件
 	/files$ rm *
 
-	Delete any file that ends in '.txt'
+	删除任何以'.txt'结尾的文件
 	/files$ rm *.txt
 
-	Delete any file that starts with 'data'
+	删除任何以'data'开头的文件
 	/files$ rm data*
 
-Navigating
+导航
 ----------
 
-The two core commands for navigating what directory the prompt is in are `cd` and `ls`.
+用于导航提示符所在目录的两个核心命令是 `cd` 和 `ls`。
 
-`cd` is a command to change the current directory, and must be followed by a directory you want to change to.  You can supply an absolute or relative path.
+`cd` 是一个更改当前目录的命令，必须跟一个你想要切换到的目录。你可以提供一个绝对或相对路径。
 
-	This will put you in /files/videos
+	这将把你带到 /files/videos
 	/files$ cd videos	
 	/files/videos$
 
-	This will put you in /videos, and then the vines subdirectory
+	这将把你带到 /videos，然后是 vines 子目录
 	/files$ cd /videos
 	/videos$ cd vines
 	/videos/vines$
 
-You can jump multiple levels at once if you want.
+如果你想要，你可以一次跳转多个级别。
 
-	This will put you in /files/videos/short
+	这将把你带到 /files/videos/short
 	/files$ cd videos/short
 
-You can use `cd ..` to move up one level to the parent directory.
+你可以使用 `cd ..` 移动到父目录的上一级。
 
-	This will put you in /files
+	这将把你带到 /files
 	/files/videos$ cd ..
 
-`ls` will list the files in the current directory.  It's helpful for figuring out where you are, what files exist, and what subfolders exist.
+`ls` 将列出当前目录中的文件。它有助于弄清楚你在哪里，存在什么文件和什么子文件夹。
 
 	/photos$ ls	
 	thumbnails  photo1.jpg  photo2.jpg
 
-Using `ls -l` will print the list vertically, with lots of other extra information about the file size, permissions, and last modified date:
+使用 `ls -l` 将以垂直方式打印列表，还有关于文件大小、权限和最后修改日期的许多其他额外信息：
 
 	/photos$ ls -l
 	-rw-rw-r-- 1 noah noah 58133 Oct 22 17:13 photo1.jpg
 	-rw-rw-r-- 1 noah noah 75640 Oct 22 17:13 photo2.jpg
 	drwxrwxr-x 2 noah noah 4096  Oct 22 17:13 thumbnails
 
-When typing in a directory or file name, you can hit the 'Tab' key to autocomplete if it's possible.  For example, in the /photos folder, if you type in:
+当输入一个目录或文件名时，你可以按“Tab”键进行自动补全（如果可能的话）。例如，在 /photos 文件夹中，如果你输入：
 
 	/photos$ cd thu
 
-and hit 'Tab,' it will fill in the rest and show you:
+并按“Tab”，它将填写剩余部分并显示：
 
 	/photos$ cd thumbnails
 
-However, if there is more than possible file/directory that matches what you've typed so far, it won't work.  If you type:
+然而，如果有多个可能的文件/目录与你到目前为止所输入的匹配，它不会起作用。如果你输入：
 
 	/photos$ rm pho
 
-and hit 'Tab,' nothing will happen because you could be on your way to `photo1.jpg` OR `photo2.jpg`.
+并按“Tab”，因为你可能要删除 `photo1.jpg` 或 `photo2.jpg`，所以什么也不会发生。
 
-Command Output
+命令输出
 --------------
 
-The commands we're going to talk about all output their results as text.  When you execute the command by hitting 'Enter', it will print out a bunch of output on extra lines below the prompt. For example, `head [file]` will print out the first 10 lines of a file.
-	
+我们将要讨论的命令都将以文本形式输出其结果。当你通过按“Enter”键执行命令时，它会在提示符下方的额外行上打印出一堆输出。例如，`head [file]` 将打印出一个文件的前10行。
+
 	/files$ head names.txt
 	Dan Sinker
 	Erika Owens
@@ -157,202 +157,202 @@ The commands we're going to talk about all output their results as text.  When y
 	Stijn Debrouwere
 	/files$
 
-Notice that after it prints out its output, it goes back to giving you a fresh prompt.  Getting the output printed out to you in this fashion is useful if you're just poking around, but often you want to do one of two things: **send the output to a file**, or **send the output to another command as an input**.
+注意，在它打印出输出后，它会回到给你一个新的提示符。如果你只是随便看看，这种方式得到输出是有用的，但通常你想要做两件事之一：**将输出发送到文件**，或**将输出作为输入发送到另一个命令**。
 
-### Sending the output to a file
+### 将输出发送到文件
 
-You can send the output to a new file this way:
+你可以这样将输出发送到新文件：
 
 	/files$ head names.txt > first10names.txt
 
-If first10names.txt doesn't exist, it will be created.  If it already exists, it will be overwritten.
+如果 first10names.txt 不存在，它将被创建。如果它已经存在，它将被覆盖。
 
-You can append the output to the end of an existing file this way:
+你可以这样将输出附加到现有文件的末尾：
 
 	/files$ head names.txt >> allnames.txt
 
-This will add the output as 10 new lines at the end of allnames.txt.
+这将在 allnames.txt 的末尾添加10行新输出。
 
-### Sending the output to another command as an input
+### 将输出作为输入发送到另一个命令
 
-You can send the output to another command using the pipe symbol (|).  The `grep` command searches through some text for matches (more on this later), so you could do this to get the first 10 lines of a file, and then search for "Steve" within those 10 lines:
+你可以使用管道符号(|)将输出发送到另一个命令。`grep` 命令搜索某些文本中的匹配项（稍后详细介绍），所以你可以这样做来获取文件的前10行，然后搜索这10行中的"Steve"：
 
 	/files$ head names.txt | grep "Steve"
 
-This is basically the same as doing this:
+这基本上与这样做相同：
 
 	/files$ head names.txt > temporaryfile.txt
 	/files$ grep "Steve" temporaryfile.txt
 
-But instead of first sending the output to a file and then running the second command on that file, you pipe the output directly from the first command into the second.  You can chain as many of these together as you want:
+但是，你可以直接从第一个命令中将输出管道到第二个命令，而不是先将输出发送到文件然后再对该文件运行第二个命令。你可以将许多这样的命令串在一起：
 
 	/files$ grep "United States" addresses.csv | grep "California" | head
 
-This would search the file addresses.csv for lines that contain the phrase "United States", then search the results for lines that contain the word "California", and then print out the first 10 of those matches.
+这将搜索文件 addresses.csv 中包含短语 "United States" 的行，然后搜索结果中包含单词 "California" 的行，然后打印出这些匹配项的前10行。
 
 Grep
 ----
 
-The `grep` command will let you search a file (or multiple files) for a phrase.  By default, it will print out each line that matches your search.
+`grep` 命令将让你搜索一个文件（或多个文件）中的短语。默认情况下，它将打印出每个匹配你搜索的行。
 
-Print out lines that contain the word "darkwing":
+打印出包含单词 "darkwing" 的行：
 
 	/files$ grep "darkwing" famousducks.txt
 
-Same as above, but the search is case-insensitive:
+与上述相同，但搜索不区分大小写：
 
 	/files$ grep -i "darkwing" famousducks.txt
 
-Find matches for the exact *word* "Donald" in a file - words that contain "Donald," like "McDonald," won't count:
+在文件中查找单词 "Donald" 的精确匹配 - 包含 "Donald" 的词，如 "McDonald"，不计算在内：
 
 	grep -w "Donald" famousducks.txt
 
-Find matches for "McDuck" in every file in the current directory:
+在当前目录的每个文件中查找 "McDuck" 的匹配：
 
 	grep "McDuck" *
 
-Find matches for "McDuck" in every file in the current directory AND every subdirectory, all the way down:
+在当前目录及其所有子目录中查找 "McDuck" 的匹配，一直向下搜索：
 
 	grep -r "McDuck" *
 
-For each match of "Howard", print out that line AND the 4 lines after it (5 lines total):
+对于每个 "Howard" 的匹配，打印出该行及其后的4行（共5行）：
 
 	grep -A 4 "Howard" famousducks.txt
 
-For each match of "Howard", print out that line AND the 4 lines before it (5 lines total):
+对于每个 "Howard" 的匹配，打印出该行及其前的4行（共5行）：
 
 	grep -B 4 "Howard" famousducks.txt
 
-For each match of "Howard", print out that line AND the 4 lines before it AND the 4 lines after it (9 lines total):
+对于每个 "Howard" 的匹配，打印出该行及其前后各4行（共9行）：
 
 	grep -C 4 "Howard" famousducks.txt
 
-Instead of printing out the matching lines themselves, print out the filenames that match your search:
+不打印出匹配的行，而是打印出匹配搜索的文件名：
 
 	grep -l "Daffy" *
 
-Just get the number of matches:
+仅获取匹配的数量：
 
 	grep -c "Daffy" *
 
-Show line numbers along with the matching lines:
+在匹配行旁边显示行号：
 
 	grep -n "Daffy" famousducks.txt
 
 Cat
 ---
 
-The `cat` command will combine multiple files together. This will print three files in a row, as if they were one file:
+`cat` 命令将合并多个文件。这将按顺序打印三个文件，就像它们是一个文件一样：
 
 	cat turkey.txt duck.txt chicken.txt
 
-Remember that this will just print the output into your terminal.  More likely, you want to create a new file that combines them:
+记住，这只会将输出打印到你的终端。更有可能的是，你想要创建一个合并它们的新文件：
 
 	cat turkey.txt duck.txt chicken.txt > turducken.txt
 
-turducken.txt will contain all of the lines in turkey.txt, followed by all of the lines in duck.txt, followed by all of the lines in chicken.txt.
+turducken.txt 将包含 turkey.txt 中的所有行，然后是 duck.txt 中的所有行，然后是 chicken.txt 中的所有行。
 
-If you want to combine ALL of the files in a directory, you can use a wildcard:
+如果你想要合并目录中的所有文件，你可以使用通配符：
 
 	cat * > allfilescombined.txt
 
 Head
 ----
 
-The `head` command will print out the first 10 lines of a file:
+`head` 命令将打印出一个文件的前10行：
 
 	/files$ head names.txt
 
-You can also specify a different number of lines.  This will print out the first 15 lines of a file:
+你也可以指定不同的行数。这将打印出一个文件的前15行：
 
 	/files$ head -n 15 names.txt
 
-Or, if you want to print all the file but leave out the LAST 15 lines, you can give a negative number:
+或者，如果你想打印整个文件但留下最后15行，则可以给出一个负数：
 
 	/files$ head -n -15 names.txt
 
-One of the nice uses of head is to quickly peek inside a large text file to see what's in it without having to wait for a text editor to load it.  This becomes a big deal when you're talking about a 1 GB file!
+head 的一个好用法是快速查看大文本文件中的内容，而不必等待文本编辑器加载它。当你谈到一个1 GB的文件时，这就成了一件大事！
 
 Tail
 ----
 
-The `tail` command is the reverse of head.  It will print out the last 10 lines of a file:
+`tail` 命令与 head 相反。它将打印出一个文件的最后10行：
 
 	/files$ tail names.txt
 
-This will print out the last 15 lines of a file:
+这将打印出一个文件的最后15行：
 
 	/files$ tail -n 15 names.txt
 
-Or, if you want to print all the file but leave out the FIRST 15 lines, you can add a plus sign:
+或者，如果你想打印整个文件但留下前15行，则可以加上一个加号：
 
 	/files$ tail -n +16 names.txt
 
-This is helpful if you want to, say, remove a header row from a CSV file:
+这在你想要，比如说，从 CSV 文件中移除一个标题行时很有帮助：
 
 	/files$ tail -n +2 names.txt > names-no-header.txt
 
-Miscellaneous
+杂项
 -------------
 
-If you just want to print out the entire contents of a file into your terminal, you can use `cat` and not combine it with anything.  This is sort of against the whole point of `cat`, but is a handy trick.
+如果你只想将一个文件的整个内容打印到你的终端，你可以使用 `cat` 并且不将其与任何东西结合使用。这有点违背 `cat` 的整个用途，但是是一个方便的技巧。
 
 	/files$ cat address.txt
 	1600 Pennsylvania Avenue
 	Washington, DC 20500
 
-If you want to get serious and open a file in a text editor that comes built in to your terminal, you can try `nano`:
+如果你想要认真地在内置于你的终端的文本编辑器中打开一个文件，你可以尝试 `nano`：
 
 	/files$ nano address.txt
 
-How many lines are in names.txt?
+names.txt 中有多少行？
 
 	/files$ wc -l names.txt
 	18
 
-Regular expressions
+正则表达式
 -------------------
 
-When using something like `grep` to search, you can search for a simple term with only letters, numbers, and spaces.  But if you want to search for a pattern, you can use what's called a **regular expression**.  Regular expressions use special characters to represent patterns, like "any number," "any letter," "X or Y," "at least three lowercase letters," and so on.
+当使用像 `grep` 这样的东西进行搜索时，你可以搜索一个简单的带有字母、数字和空格的术语。但是如果你想要搜索一个模式，你可以使用所谓的**正则表达式**。正则表达式使用特殊字符来表示模式，比如“任何数字”、“任何字母”、“X或Y”、“至少三个小写字母”等等。
 
-We won't worry about the ins and outs for now, but one useful operator is the period (.).  In regular expression-ese, this means "One of any character."  So you can search for something like:
+我们现在不需要担心这些细节，但一个有用的操作符是句点(.)。在正则表达式中，这意味着“任何一个字符”。因此，你可以搜索像这样的东西：
 
 	/files$ grep -i "car.s" dictionary.txt
 
-This would match words like `cards`,`carts`,`cares`, and so on.  It would also match the middle of the phrase "scar story" (CAR S) because "any character" means ANY character, including a space or a punctuation mark.
+这将匹配像 `cards`,`carts`,`cares` 等词。它也会匹配短语 "scar story" 中的部分 (CAR S)，因为“任何字符”意味着任何字符，包括空格或标点符号。
 
-One more example:
+再举一个例子：
 
 	/files$ grep -i ".e.st" dictionary.txt
 
-This would match things like `least`,`beast`, and `heist`.
+这将匹配像 `least`,`beast` 和 `heist` 这样的词。
 
-More than one way to skin a cat
+有多种方法可以做同一件事
 ------------------------------
 
-There are often lots of equally legitimate commands or combinations of commands to achieve the same purpose.
+通常有许多同样合理的命令或命令组合来达到同样的目的。
 
-Example:
+例子：
 
 	/files$ head -n 12 names.txt | tail -n 5
-	(Print out the first 12 lines, and then print out the last 5 lines of that)
+	（打印出前12行，然后打印出那之中的最后5行）
 
-	is the same as
+	与
 
 	/files$ tail -n +8 names.txt | head -n 5
-	(Print out everything starting with line 8, then print the first 5 lines of that)
+	（打印出从第8行开始的所有内容，然后打印出那之中的前5行）
 
-	is pretty much the same as:
+	几乎相同：
 
 	/files$ tail -n +8 names.txt > temporaryfile.txt
 	/files$ head -n 5 temporaryfile.txt
 	/files$ rm temporaryfile.txt
-	(Save everything starting with line 8 to a temporary file, then print the first 5 lines of that, then delete the temporary file)
+	（将从第8行开始的所有内容保存到一个临时文件中，然后打印出那之中的前5行，然后删除临时文件）
 
 ---
 
-## Questions/Comments/Suggestions ##
+## 问题/评论/建议 ##
 Noah Veltman  
-Web: http://noahveltman.com  
-Twitter: [@veltman](http://twitter.com/veltman)  
-Email: [noah@noahveltman.com](mailto:noah@noahveltman.com)  
+网站: http://noahveltman.com  
+推特: [@veltman](http://twitter.com/veltman)  
+电邮: [noah@noahveltman.com](mailto:noah@noahveltman.com)  
